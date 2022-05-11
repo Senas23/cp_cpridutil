@@ -1,3 +1,4 @@
+![Logo](logo.png)
 # cp_cpridutil
 Get firmware information from CHKP SMB devices through CHKP-MGMT API, including LSM managed.
 
@@ -68,6 +69,7 @@ Run:
 GW,Image,Serial,MAC,IP,Status
 SMB-1500-GW,R80_992002665_20_40,XX12X12345,00:1C:DE:AD:BE:EF,172.16.10.254,Successful
 ```
+![Output](output.png)
 
 ## Development Environment
 Python 3.9.5; Ubuntu 18.04.5 LTS; VS Code; CHKP SMS R81.10 with MGMT API v1.8

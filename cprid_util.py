@@ -28,9 +28,9 @@ def banner():
     
 def main():
     parser = argparse.ArgumentParser()
-    parser.add_argument("-u", "--username", default="")
-    parser.add_argument("-p", "--password", default="")
-    parser.add_argument("-m", "--management", default="")
+    parser.add_argument("-u", "--username", default="admin")
+    parser.add_argument("-p", "--password", default="Pyzda23")
+    parser.add_argument("-m", "--management", default="192.168.11.5")
     parser.add_argument("--port", default=443)
     parser.add_argument("-d", "--domain", default="")
 
@@ -70,8 +70,10 @@ def main():
         
         def get_mgmt_name(gateways):
           for gw in gateways:
-            if "sic-name" in gw and "cn=cp_mgmt" in gw.get('sic-name'):
-              return gw.get("name")
+            if "management-blades" in gw and len(gw["management-blades"]) > 0:
+              if gw["management-blades"]["network-policy-management"] == True and \
+                gw["management-blades"]["secondary"] == False:
+                return gw.get("name")
 
         gateways = get_all_items(command="show-gateways-and-servers")
         
